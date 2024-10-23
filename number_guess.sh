@@ -44,6 +44,6 @@ do
   read GUESS
 done
 
-echo "You guessed it in $NUMBER_OF_GUESSES tries. The secret number was $RANDOM_NUMBER. Nice job!"
 
-$PSQL "INSERT INTO user_scores (username, guess, trials) VALUES ('$USERNAME', $RANDOM_NUMBER, $NUMBER_OF_GUESSES)" 1> bin.txt
+END=$($PSQL "INSERT INTO user_scores (username, guess, trials) VALUES ('$USERNAME', $RANDOM_NUMBER, $NUMBER_OF_GUESSES)")
+echo "You guessed it in $NUMBER_OF_GUESSES tries. The secret number was $RANDOM_NUMBER. Nice job!"
